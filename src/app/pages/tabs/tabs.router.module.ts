@@ -27,6 +27,11 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../people/people.module#PeoplePageModule'
+          },
+          {
+              /**:id helps to pass info from url */
+              path: ':id',
+              loadChildren: '../people-details/people-details.module#PeopleDetailsPageModule'
           }
         ]
       },
