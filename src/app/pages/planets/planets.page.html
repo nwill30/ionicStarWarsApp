@@ -5,9 +5,9 @@
 </ion-header>
 
 <ion-content >
-  <ion-list>
-    <ion-item button detail lines="inset" *ngFor="let planet of (planets | async)?.results">
-      {{ planet.name}}
-    </ion-item>
-  </ion-list>
+    <ion-list>
+        <ion-item button detail lines="inset" *ngFor="let planet of (planets | async)?.results" (click)="openDetails(planet)">
+          {{ planet.name}}
+        </ion-item>
+    </ion-list>
 </ion-content>

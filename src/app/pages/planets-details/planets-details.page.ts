@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from 'src/app/api.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-planets-details',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanetsDetailsPage implements OnInit {
 
-  constructor() { }
+  planet: any;
+  resident: Observable<any>;
+
+  constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
 
   ngOnInit() {
+    this.resident = this.api.getPeople();
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.api.getPlanet(id).subscribe(res =>{
+      this.planet = res;
+    })
   }
-
 }

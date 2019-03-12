@@ -18,6 +18,10 @@ export class PlanetsPage implements OnInit {
     this.planets = this.api.getPlanets();
   }
 
-  
+  openDetails(planets){
+    let split = planets.url.split('/');
+    let planetId = split[split.length-2];
+    this.router.navigateByUrl(`/tabs/planets/${planetId}`);
+  }
 
 }

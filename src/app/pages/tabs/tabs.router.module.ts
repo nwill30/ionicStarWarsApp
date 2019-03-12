@@ -41,7 +41,12 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../planets/planets.module#PlanetsPageModule'
-          }
+          },
+          {
+            /**:id helps to pass info from url */
+            path: ':id',
+            loadChildren: '../planets-details/planets-details.module#PlanetsDetailsPageModule'
+        }
         ]
       }
     ]

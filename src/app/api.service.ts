@@ -29,6 +29,6 @@ export class ApiService {
   }
 
   getPlanet(id) {
-    return this.http.get(`https://swapi.co/api/planet/${id}`)
+    return this.http.get(`https://swapi.co/api/planets/${id}`)
   }
 }
