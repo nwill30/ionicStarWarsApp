@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+      <ion-buttons slot="start" defaultHref="/tabs/planets">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{ planet?.name }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <h3>details</h3>
+      <ion-card *ngIf="planet">
+          <ion-card-content>
+            <p>
+                rotation period: {{ planet.rotation_period }}
+            </p>
+            <p>
+                orbital period: {{ planet.orbital_period }}
+            </p>
+            <p>
+                diameter: {{ planet.diameter }}
+            </p>
+            <p>
+                climate: {{ planet.climate }}
+            </p>
+            <p>
+                gravity: {{ planet.gravity }}
+            </p>
+            <p>
+                terrain: {{ planet.terrain }}
+            </p>            
+            <p>
+                surface water: {{ planet.surface_water }}
+            </p>
+            <p>
+                population: {{planet.population}}
+            </p>
+          </ion-card-content>
+      </ion-card>
+    <h3>films</h3>
+      <ion-card>
+        <ion-item button detail lines="inset" *ngFor="let resident of (residents | async)?.results">
+          {{ resident.name}}
+        </ion-item>
+      </ion-card>
+  </ion-content>
+  

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start" defaultHref="/tabs/films">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ person?.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>bio</h3>
+    <ion-card *ngIf="person">
+        <ion-card-content>
+          <p>
+              gender: {{ person.gender }}
+          </p>
+          <p>
+              height: {{ person.height }}
+          </p>
+          <p>
+              weight: {{ person.weight }}
+          </p>
+          <p>
+              hair: {{ person.hair_color }}
+          </p>
+          <p>
+              eyes: {{ person.eye_color }}
+          </p>
+          <p>
+              birth year: {{ person.birth_year }}
+          </p>
+        </ion-card-content>
+    </ion-card>
+  <h3>films</h3>
+    <ion-card>
+      <ion-item button detail lines="inset" *ngFor="let film of (films | async)?.results">
+        {{ film.title}}
+      </ion-item>
+    </ion-card>
+</ion-content>

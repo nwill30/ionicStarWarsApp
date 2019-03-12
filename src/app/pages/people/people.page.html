@@ -1,9 +1,13 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>people</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content >
+  <ion-list>
+    <ion-item button detail lines="inset" *ngFor="let person of (people | async)?.results" (click)="openDetails(person)">
+      {{ person.name}}
+    </ion-item>
+  </ion-list>
 </ion-content>
